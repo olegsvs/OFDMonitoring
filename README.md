@@ -5,3 +5,6 @@
 
 Для работы через планировщик задач добавлены параметры командной строки
 SendEmail StartCheckList - при запуске сразу начнет проверять список ip на наличие проблем с отправкой/доступностью ККМ и уведомлять на почту.
+
+
+![FIRST](https://github.com/olegsvs/OFDMonitoring/blob/master/images/screen.png)
