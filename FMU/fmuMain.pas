@@ -138,21 +138,21 @@ const
   REGSTR_KEY_DRVFRTST = '\SOFTWARE\ShtrihM\Tests\DrvFR\A4\Param';
 
 resourcestring
-  SPageSlip = 'ПД';
-  SPageStatus = 'Состояние';
-  SPageText = 'Печать текста';
-  SPageRegistration = 'Регистрация';
-  SReports = 'Отчеты';
-  SPageGraphics = 'Печать графики';
-  SPageService = 'Сервис';
-  SPageParams = 'Параметры устройства';
-  SPageEJournal = 'ЭКЛЗ';
-  SPageAdvanced = 'Прочее';
-  SApplicationName = 'Тест%%20драйвера';
-  SMilliseconds = 'мс';
-  SApplicationVersion = 'Версия теста: ';
-  SInvalidPassword = 'Некорректное значение в поле "Password"';
-  SRestartApplication = 'Для измения языка необходимо перезапустить приложение';
+  SPageSlip = 'РџР”';
+  SPageStatus = 'РЎРѕСЃС‚РѕСЏРЅРёРµ';
+  SPageText = 'РџРµС‡Р°С‚СЊ С‚РµРєСЃС‚Р°';
+  SPageRegistration = 'Р РµРіРёСЃС‚СЂР°С†РёСЏ';
+  SReports = 'РћС‚С‡РµС‚С‹';
+  SPageGraphics = 'РџРµС‡Р°С‚СЊ РіСЂР°С„РёРєРё';
+  SPageService = 'РЎРµСЂРІРёСЃ';
+  SPageParams = 'РџР°СЂР°РјРµС‚СЂС‹ СѓСЃС‚СЂРѕР№СЃС‚РІР°';
+  SPageEJournal = 'Р­РљР›Р—';
+  SPageAdvanced = 'РџСЂРѕС‡РµРµ';
+  SApplicationName = 'РўРµСЃС‚%%20РґСЂР°Р№РІРµСЂР°';
+  SMilliseconds = 'РјСЃ';
+  SApplicationVersion = 'Р’РµСЂСЃРёСЏ С‚РµСЃС‚Р°: ';
+  SInvalidPassword = 'РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ РїРѕР»Рµ "Password"';
+  SRestartApplication = 'Р”Р»СЏ РёР·РјРµРЅРёСЏ СЏР·С‹РєР° РЅРµРѕР±С…РѕРґРёРјРѕ РїРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ';
 
   { TfmMain }
 
@@ -226,20 +226,20 @@ begin
   begin
     if (ParamStr(1) = 'SendEmailsOfd') then
       CheckBox2.Checked := true;
-    //касса имеет более 200 неотправленных - отправлять ли письмо
+    //РєР°СЃСЃР° РёРјРµРµС‚ Р±РѕР»РµРµ 200 РЅРµРѕС‚РїСЂР°РІР»РµРЅРЅС‹С… - РѕС‚РїСЂР°РІР»СЏС‚СЊ Р»Рё РїРёСЃСЊРјРѕ
     if (ParamStr(2) = 'StartCheckList') then
       Button2.OnClick(nil);
     if (ParamStr(3) = 'SendEmailsOffline') then
-      CheckBox3.Checked := true; //касса офлайн - посылаем ли письмо
+      CheckBox3.Checked := true; //РєР°СЃСЃР° РѕС„Р»Р°Р№РЅ - РїРѕСЃС‹Р»Р°РµРј Р»Рё РїРёСЃСЊРјРѕ
   end;
   if (ParamCount = 2) then
   begin
     if (ParamStr(1) = 'SendEmailsOfd') then
       CheckBox2.Checked := true;
-    //касса имеет более 200 неотправленных - отправлять ли письмо
+    //РєР°СЃСЃР° РёРјРµРµС‚ Р±РѕР»РµРµ 200 РЅРµРѕС‚РїСЂР°РІР»РµРЅРЅС‹С… - РѕС‚РїСЂР°РІР»СЏС‚СЊ Р»Рё РїРёСЃСЊРјРѕ
     if (ParamStr(2) = 'StartCheckList') then
       Button2.OnClick(nil);
-    //if(ParamStr(3) = 'SendEmailsOffline') then CheckBox3.Checked:=true;  //касса офлайн - посылаем ли письмо
+    //if(ParamStr(3) = 'SendEmailsOffline') then CheckBox3.Checked:=true;  //РєР°СЃСЃР° РѕС„Р»Р°Р№РЅ - РїРѕСЃС‹Р»Р°РµРј Р»Рё РїРёСЃСЊРјРѕ
   end;
   Application.Title := Caption + ' ' + DeviceName;
   Caption := Caption + ' ' + DeviceName + ' ' + GetFileVersionInfoStr;
@@ -475,18 +475,18 @@ begin
     Drv.ConnectionType := 6;
     Drv.IPAddress := IP;
     Drv.UseIPAddress := True;
-    Drv.TCPPort := port; // TCP Порт ККТ
-    Drv.Timeout := 5000; // Таймаут в мс
-    Drv.Password := 30; // Пароль системного администратора
-    RichTDK.Lines.Add('Попытка запроса данных с ' + IP + ':' + IntToStr(port) +
+    Drv.TCPPort := port; // TCP РџРѕСЂС‚ РљРљРў
+    Drv.Timeout := 5000; // РўР°Р№РјР°СѓС‚ РІ РјСЃ
+    Drv.Password := 30; // РџР°СЂРѕР»СЊ СЃРёСЃС‚РµРјРЅРѕРіРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°
+    RichTDK.Lines.Add('РџРѕРїС‹С‚РєР° Р·Р°РїСЂРѕСЃР° РґР°РЅРЅС‹С… СЃ ' + IP + ':' + IntToStr(port) +
       ' ' + DateToStr(Now) + ' ' + TimeToStr(Now));
-    if Drv.Connect <> 0 then // Проверяем подключение
+    if Drv.Connect <> 0 then // РџСЂРѕРІРµСЂСЏРµРј РїРѕРґРєР»СЋС‡РµРЅРёРµ
     begin
       RichTDK.SelAttributes.Color := clRed;
       RichTDK.Lines.SaveToFile('ofd_monitoring_log.txt');
-      RichTDK.Lines.Add('Нет связи с ККМ, код: ' + Drv.ResultCodeDescription);
+      RichTDK.Lines.Add('РќРµС‚ СЃРІСЏР·Рё СЃ РљРљРњ, РєРѕРґ: ' + Drv.ResultCodeDescription);
       RichTDK.SelAttributes.Color := clRed;
-      RichTDK.Lines.add('отправление предупреждения на ServiceDesk(mail_con.vbs)');
+      RichTDK.Lines.add('РѕС‚РїСЂР°РІР»РµРЅРёРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ РЅР° ServiceDesk(mail_con.vbs)');
       //ShellExecute(0, nil, 'mail_con.vbs', PChar(ip), nil, SW_SHOW);
     end;
     Drv.TableNumber := 20;
@@ -494,30 +494,30 @@ begin
     Drv.RowNumber := 1;
     if Drv.ReadTable = 0 then
     begin
-      RichTDK.Lines.Add('Имя поля [20:3:1] ' + Drv.FieldName);
+      RichTDK.Lines.Add('РРјСЏ РїРѕР»СЏ [20:3:1] ' + Drv.FieldName);
       if not Drv.FieldType then
       begin
         RichTDK.Lines.SaveToFile('ofd_monitoring_log.txt');
-        RichTDK.Lines.Add('Неотправленных документов: ' +
+        RichTDK.Lines.Add('РќРµРѕС‚РїСЂР°РІР»РµРЅРЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ: ' +
           IntToStr(Drv.ValueOfFieldInteger));
         if (Drv.ValueOfFieldInteger > 200) then
         begin
           RichTDK.SelAttributes.Color := clRed;
-          RichTDK.Lines.add('отправление предупреждения на ServiceDesk(mail.vbs)');
+          RichTDK.Lines.add('РѕС‚РїСЂР°РІР»РµРЅРёРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ РЅР° ServiceDesk(mail.vbs)');
           //ShellExecute(0, nil, 'mail.vbs', PChar(ip + ' ' + IntToStr(Drv.ValueOfFieldInteger)), nil, SW_SHOW);
         end;
       end
       else
       begin
         RichTDK.SelAttributes.Color := clRed;
-        RichTDK.Lines.Add('Ошибка Driver.FieldType код: ' +
+        RichTDK.Lines.Add('РћС€РёР±РєР° Driver.FieldType РєРѕРґ: ' +
           Drv.ResultCodeDescription);
       end;
     end
     else
     begin
       RichTDK.SelAttributes.Color := clRed;
-      RichTDK.Lines.Add('Ошибка Driver.ReadTable код: ' +
+      RichTDK.Lines.Add('РћС€РёР±РєР° Driver.ReadTable РєРѕРґ: ' +
         Drv.ResultCodeDescription);
     end;
   finally
@@ -639,7 +639,7 @@ var
   i: Integer;
   Drv: TDrvFR;
 begin
-  RichTDK.Lines.Add('Старт по интервалу ' + DateToStr(Now) + ' ' +
+  RichTDK.Lines.Add('РЎС‚Р°СЂС‚ РїРѕ РёРЅС‚РµСЂРІР°Р»Сѓ ' + DateToStr(Now) + ' ' +
     TimeToStr(Now));
   EnableButtons(False);
   Drv := TDrvFR.Create(nil);
