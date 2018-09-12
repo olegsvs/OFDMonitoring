@@ -44,31 +44,31 @@ begin
     Drv.ConnectionType := 6;
     Drv.IPAddress := IP;
     Drv.UseIPAddress := True;
-    Drv.TCPPort := port; // TCP Порт ККТ
-    Drv.Timeout := 5000; // Таймаут в мс
-    Drv.Password := 30; // Пароль системного администратора
-    tmpString := ('Попытка запроса данных с ' + IP + ':' + IntToStr(port) + ' '
+    Drv.TCPPort := port; // TCP РџРѕСЂС‚ РљРљРў
+    Drv.Timeout := 5000; // РўР°Р№РјР°СѓС‚ РІ РјСЃ
+    Drv.Password := 30; // РџР°СЂРѕР»СЊ СЃРёСЃС‚РµРјРЅРѕРіРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°
+    tmpString := ('РџРѕРїС‹С‚РєР° Р·Р°РїСЂРѕСЃР° РґР°РЅРЅС‹С… СЃ ' + IP + ':' + IntToStr(port) + ' '
       + DateToStr(Now) + ' ' + TimeToStr(Now));
     Synchronize(test);
-    if Drv.Connect <> 0 then // Проверяем подключение
+    if Drv.Connect <> 0 then // РџСЂРѕРІРµСЂСЏРµРј РїРѕРґРєР»СЋС‡РµРЅРёРµ
     begin
-      tmpString := ('Нет связи с ККМ, код: ' + Drv.ResultCodeDescription);
+      tmpString := ('РќРµС‚ СЃРІСЏР·Рё СЃ РљРљРњ, РєРѕРґ: ' + Drv.ResultCodeDescription);
       Synchronize(test);
       RichTDK.SelAttributes.Color := clRed;
       Synchronize(test);
-      tmpString := ('Отправление предупреждения на ' + email +
-        '(запуск mail_con.vbs)');
+      tmpString := ('РћС‚РїСЂР°РІР»РµРЅРёРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ РЅР° ' + email +
+        '(Р·Р°РїСѓСЃРє mail_con.vbs)');
       Synchronize(test);
       if (CheckBox2.checked = true) then
       begin
-        tmpString := ('Отправка сообщений включена');
+        tmpString := ('РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёР№ РІРєР»СЋС‡РµРЅР°');
         Synchronize(test);
         ShellExecute(0, nil, 'mail_con.vbs', PChar(ip + ' ' + email), nil,
           SW_SHOW);
       end
       else
       begin
-        tmpString := ('Отправка сообщений отключена');
+        tmpString := ('РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёР№ РѕС‚РєР»СЋС‡РµРЅР°');
         Synchronize(test);
       end;
     end;
@@ -77,9 +77,9 @@ begin
     Drv.RowNumber := 1;
     if Drv.ReadTable = 0 then
     begin
-      tmpString := ('Чтение таблицы [20] "Статус обмена ФН"');
+      tmpString := ('Р§С‚РµРЅРёРµ С‚Р°Р±Р»РёС†С‹ [20] "РЎС‚Р°С‚СѓСЃ РѕР±РјРµРЅР° Р¤Рќ"');
       Synchronize(test);
-      tmpString := ('Чтение поля [ряд 1 поле 3] ' + Drv.FieldName);
+      tmpString := ('Р§С‚РµРЅРёРµ РїРѕР»СЏ [СЂСЏРґ 1 РїРѕР»Рµ 3] ' + Drv.FieldName);
       Synchronize(test);
       if not Drv.FieldType then
       begin
@@ -90,24 +90,24 @@ begin
           RichTDK.SelAttributes.Color := clPurple;
         if (docs > 200) then
           RichTDK.SelAttributes.Color := clRed;
-        tmpString := ('Неотправленных документов: ' + IntToStr(docs));
+        tmpString := ('РќРµРѕС‚РїСЂР°РІР»РµРЅРЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ: ' + IntToStr(docs));
         Synchronize(test);
         if (Drv.ValueOfFieldInteger > 100) then
         begin
           RichTDK.SelAttributes.Color := clRed;
-          tmpString := ('Отправление предупреждения на ' + email +
-            '(запуск mail.vbs)');
+          tmpString := ('РћС‚РїСЂР°РІР»РµРЅРёРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ РЅР° ' + email +
+            '(Р·Р°РїСѓСЃРє mail.vbs)');
           Synchronize(test);
           if (CheckBox.checked = true) then
           begin
-            tmpString := ('Отправка сообщений включена');
+            tmpString := ('РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёР№ РІРєР»СЋС‡РµРЅР°');
             Synchronize(test);
             ShellExecute(0, nil, 'mail.vbs', PChar(ip + ' ' +
               IntToStr(Drv.ValueOfFieldInteger) + ' ' + email), nil, SW_SHOW);
           end
           else
           begin
-            tmpString := ('Отправка сообщений отключена');
+            tmpString := ('РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёР№ РѕС‚РєР»СЋС‡РµРЅР°');
             Synchronize(test);
           end;
         end;
@@ -115,7 +115,7 @@ begin
       else
       begin
         RichTDK.SelAttributes.Color := clRed;
-        tmpString := ('Ошибка Driver.FieldType код: ' +
+        tmpString := ('РћС€РёР±РєР° Driver.FieldType РєРѕРґ: ' +
           Drv.ResultCodeDescription);
         Synchronize(test);
       end;
@@ -123,7 +123,7 @@ begin
     else
     begin
       RichTDK.SelAttributes.Color := clRed;
-      tmpString := ('Ошибка Driver.ReadTable код: ' +
+      tmpString := ('РћС€РёР±РєР° Driver.ReadTable РєРѕРґ: ' +
         Drv.ResultCodeDescription);
       Synchronize(test);
     end;
